@@ -1,4 +1,3 @@
-from Tools.scripts.patchcheck import status
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.service import Service
@@ -52,7 +51,7 @@ driver.maximize_window()
 # open the url
 driver.get('https://www.target.com/ ')
 
-# click sign in button  on homepage
+#  click sign in button  on homepage
 driver.find_element(By.XPATH,"//span[@class='sc-58ad44c0-3 kwbrXj h-margin-r-x3']").click()
 
 sleep (4)
@@ -60,5 +59,4 @@ sleep (4)
 driver.find_element(By.XPATH,"//button[@class='sc-ddc722c0-0 sc-f1230b39-0 jKTcnK doBYzz h-margin-t-x2 h-margin-b-default']").click()
 
 sleep(8)
-
 
