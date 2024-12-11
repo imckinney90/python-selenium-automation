@@ -48,30 +48,3 @@ driver.maximize_window()
 # Sign In
 # $$(".a-link-emphasis")
 
-# 2. Create a test case using BDD that opens target.com, clicks on the cart icon and verifies that “Your cart is empty” message is shown:
-# Open target.com
-# Click on Cart icon
-# Verify “Your cart is empty” message is shown
-
-# Feature: Target.com Shopping Cart
-
-#  Scenario:"Your cart is empty" message for carts without any items
-#    Given I open the Target page
-#    When I click on the cart icon
-#    Then I should see the following message "Your cart is empty"
-
-
-# 3. Create a test case using BDD to verify that a logged out user can navigate to Sign In:
-# Open target.com
-# Click Sign In
-# From right side navigation menu, click Sign In
-# Verify Sign In form opened
-
-# Feature: User Sign In Navigation
-
-#  Scenario:Logged out user can navigate to Sign In page
-#    Given I open the Target page
-#    When I click on Sign In
-#    AND I click "Sign In" on the right side navigation menu
-#    Then I should see the Sign In form page
-

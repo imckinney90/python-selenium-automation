@@ -51,12 +51,12 @@ driver.maximize_window()
 # open the url
 driver.get('https://www.target.com/ ')
 
-#  click sign in button  on homepage
-driver.find_element(By.XPATH,"//span[@class='sc-58ad44c0-3 kwbrXj h-margin-r-x3']").click()
-
-sleep (4)
-# click sign in button on side navigation
-driver.find_element(By.XPATH,"//button[@class='sc-ddc722c0-0 sc-f1230b39-0 jKTcnK doBYzz h-margin-t-x2 h-margin-b-default']").click()
-
-sleep(8)
-
+# #  click sign in button  on homepage
+#driver.find_element(By.XPATH,"//span[@class='sc-58ad44c0-3 kwbrXj h-margin-r-x3']").click()
+#
+# sleep (4)
+# # click sign in button on side navigation
+#driver.find_element(By.XPATH,"//button[@class='sc-ddc722c0-0 sc-f1230b39-0 jKTcnK doBYzz h-margin-t-x2 h-margin-b-default']").click()
+#
+# sleep(8)
+#
