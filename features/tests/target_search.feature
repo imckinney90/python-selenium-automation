@@ -11,7 +11,7 @@ Feature: Tests for search
     When Search for coffee
     Then Verify search results shown for coffee
 
-  Scenario: User can search for a mug
+  Scenario: User can search for a soccer ball
     Given Open target main page
     When Search for soccer ball
     Then Verify search results shown for soccer ball

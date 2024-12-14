@@ -1,6 +1,10 @@
 from selenium.webdriver.common.by import By
 from behave import given, when, then
 from time import sleep
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+
+
 
 @given('Open main paige of target')
 def open_main(context):
@@ -9,14 +13,13 @@ def open_main(context):
 
 @when('Click Sign In button in the header')
 def click_cart_icon(context):
-    context.driver.find_element(By.CSS_SELECTOR, '.sc-58ad44c0-3').click()
-sleep(10)
+    context.driver.wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR,'.sc-58ad44c0-3'))).click()
 
 
 @when('Click "Sign In" link from the right-side navigation menu')
 def click_sign_in_link(context):
-    context.driver.find_element(By.CSS_SELECTOR, "[data-test='accountNav-signIn']").click()
-sleep(10)
+    context.driver.wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, "[data-test='accountNav-signIn']"))).click()
+
 
 
 @then('See the Sign In form')

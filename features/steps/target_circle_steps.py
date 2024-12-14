@@ -1,16 +1,13 @@
 from selenium.webdriver.common.by import By
 from behave import given, when, then
 from time import sleep
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 
 
 @when('Click Target Circle header button')
 def click_target_circle(context):
-    context.driver.find_element(By.CSS_SELECTOR, "#utilityNav-circle").click()
-    sleep(10)
-
-
-
-
+    context.driver.wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, "#utilityNav-circle"))).click()
 
 
 @then('See at least {expected_amount} benefit cells displayed on the page')

@@ -1,7 +1,8 @@
 from selenium.webdriver.common.by import By
 from behave import given, when, then
 from time import sleep
-
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 
 SEARCH_INPUT = (By.NAME, 'q')
 SEARCH_SUBMIT = (By.NAME, 'btnK')
@@ -30,3 +31,4 @@ def click_search_icon(context):
 def verify_found_results_text(context, search_word):
     assert search_word.lower() in context.driver.current_url.lower(), \
         f'Expected query not in {context.driver.current_url.lower()}'
+

@@ -12,7 +12,6 @@ from time import sleep
 def search_product(context, product):
     context.driver.find_element(By.ID, 'search').send_keys(product)
     context.driver.find_element(By.XPATH, "//button[@data-test='@web/Search/SearchButton']").click()
-    sleep(5)
 
 
 @then('Verify search results shown for {product}')
