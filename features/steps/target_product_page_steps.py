@@ -5,9 +5,12 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
 
+PRODUCT_URL = 'https://www.target.com/p/energen-tech-plus-2-running-shoes/-/A-92476719?preselect=92476740#lnk=sametab'
+
+
 @given('Open product page')
 def open_prod_page(context):
-    context.driver.get('https://www.target.com/p/energen-tech-plus-2-running-shoes/-/A-92476719?preselect=92476740#lnk=sametab')
+    context.driver.get(PRODUCT_URL)
 
 
 @when('Product has multiple color options')
