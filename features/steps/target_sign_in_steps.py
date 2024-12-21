@@ -5,30 +5,28 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
 
+SIGN_IN_BTN = (By.CSS_SELECTOR, '.sc-58ad44c0-3')
+SIGN_IN_LINK = (By.CSS_SELECTOR, "[data-test='accountNav-signIn']")
+LOGIN_FORM_TITLE = (By.CSS_SELECTOR, '#login')
 
-@given('Open main paige of target')
+
+
+@given('Open main page of target')
 def open_main(context):
-    context.driver.get('https://www.target.com/')
+    context.app.main_page.open_main()
 
 
 @when('Click Sign In button in the header')
-def click_cart_icon(context):
-    context.driver.wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR,'.sc-58ad44c0-3'))).click()
-
+def click_sign_in_btn(context):
+    context.app.header.sign_in_button()
 
 @when('Click "Sign In" link from the right-side navigation menu')
 def click_sign_in_link(context):
-    context.driver.wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, "[data-test='accountNav-signIn']"))).click()
-
+    context.app.header.sign_in_link()
 
 
 @then('See the Sign In form')
 def check_sign_in_form(context):
-    expected_result = "Sign in with password"
-    actual_result = context.driver.find_element(By.CSS_SELECTOR, '#login').text
-    assert expected_result == actual_result, f'Expected {expected_result} did not match {actual_result}'
+    context.app.sign_in_page.check_sign_in_form()
 
 
-# driver.find_element(By.CSS_SELECTOR, '.highlight')
-# (By.CSS_SELECTOR,"['.sc-fe064f5c-0']").text
-#'#my-element'

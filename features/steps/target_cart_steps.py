@@ -6,6 +6,9 @@ from selenium.webdriver.support import expected_conditions as EC
 
 CART_ICON = (By.CSS_SELECTOR,"[data-test='@web/CartLink']")
 COCA_COLA = (By.CSS_SELECTOR,'[aria-label="Add Coca-Cola Soda - 10pk/7.5 fl oz Mini-Cans to cart"]')
+ADD_TO_CART = (By.CSS_SELECTOR,"[data-test='orderPickupButton']")
+
+
 
 @given('Open main page')
 def open_main(context):
@@ -23,22 +26,14 @@ def verify_cart_empty(context):
 
 @when('Add to cart {product_name}')
 def add_to_cart(context,product_name):
-    context.driver.wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR,"#search"))).click()
-    context.driver.find_element(By.CSS_SELECTOR, "#search").send_keys(product_name)
-    context.driver.find_element(By.CSS_SELECTOR, ".sc-4596e520-3").click()
+    context.app.cart_page.add_to_cart(product_name)
 
 
 @when('Add {product_name} to the cart in the right-side menu')
 def add_to_cart(context,product_name):
-   #context.driver.wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR,'[aria-label="Add Coca-Cola Soda - 10pk/7.5 fl oz Mini-Cans to cart"]'))).click()
-   context.driver.wait.until(EC.element_to_be_clickable(COCA_COLA)).click()
-   context.driver.wait.until(EC.element_to_be_clickable(
-       (By.CSS_SELECTOR,"[data-test='orderPickupButton']"))).click()
-   context.driver.get('https://www.target.com/cart')
+   context.app.search_results_page.add_cola_cart()
 
 
 @then('Should see the product in my cart')
 def verify_product(context):
-    expected_result = "Coca-Cola Soda - 10pk/7.5 fl oz Mini-Cans"
-    actual_result = context.driver.find_element(By.CSS_SELECTOR, "[data-test='cartItem-title']").text
-    assert expected_result == actual_result, f'Expected product {expected_result} did not match {actual_result}'
+    context.app.cart_page.verify_product()

@@ -2,7 +2,7 @@
 Feature: Sign In functionality on Target.com
 
   Scenario: Verify a logged-out user can navigate to the Sign In page
-    Given Open main paige of target
+    Given Open main page of target
     When Click Sign In button in the header
     And Click "Sign In" link from the right-side navigation menu
     Then See the Sign In form
