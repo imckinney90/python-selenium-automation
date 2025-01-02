@@ -17,3 +17,7 @@ class BasePage:
 
     def input_text(self, text, *locator):
         self.driver.find_element(*locator).send_keys(text)
+
+    def get_current_window_handle(self):
+        return self.driver.current_window_handle
+
